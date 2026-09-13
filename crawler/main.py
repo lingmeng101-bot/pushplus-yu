@@ -1,8 +1,8 @@
-import config
 import requests
-from fetcher import make_session, fetch
-from parser import parse_list, parse_detail, next_page_url ,BLOCKED
-from storage import init_db, link_exists, save_yu, commit_db
+import config
+from crawler.fetcher import fetch
+from crawler.parser import parse_list, parse_detail, next_page_url, BLOCKED
+from crawler.storage import link_exists, save_yu, commit_db
 
 def crawl_and_save(session, start_url: str, max_pages: int, conn) -> tuple[int,int]:
     url = start_url
@@ -64,14 +64,3 @@ def crawl_and_save(session, start_url: str, max_pages: int, conn) -> tuple[int,i
     if malformed_count > 0:
         print(f"\n⚠️ 警告：今日发现 {malformed_count} 条解析异常（malformed），请检查解析器！")
     return added_count , malformed_count
-if __name__ == "__main__":
-    session = make_session()
-    conn = init_db()
-    try:
-        added, malformed = crawl_and_save(
-            session, start_url=config.BASE_URL, max_pages=config.MAX_PAGES, conn=conn,
-        )
-        print(f"\n新增 {added} 条正常/受限数据")
-        print(f"收容 {malformed} 条 malformed 数据")
-    finally:
-        conn.close()

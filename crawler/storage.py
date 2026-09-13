@@ -9,8 +9,8 @@ SCHEMA = """
     title TEXT NOT NULL,
     content TEXT,
     access_status TEXT DEFAULT 'normal',
+    pushed INTEGER DEFAULT 0,
     UNIQUE(url))"""
-
 def init_db():
     conn = sqlite3.connect(config.DB_NAME)
     c = conn.cursor()
@@ -45,6 +45,23 @@ def save_yu(conn: sqlite3.Connection,
             day = excluded.day,
             title = excluded.title
     """, (url, day, title, content, access_status))
+
+def get_unpushed(conn):
+
+    c = conn.cursor()
+    c.execute("""
+        SELECT id, title, url, day FROM YU
+        WHERE access_status IN ('normal', 'restricted')
+          AND pushed = 0
+        ORDER BY id DESC
+    """)
+    return c.fetchall()
+
+def mark_pushed(conn, notice_id):
+
+    c = conn.cursor()
+    c.execute("UPDATE YU SET pushed = 1 WHERE id = ?", (notice_id,))
+    conn.commit()
 
 def commit_db(conn: sqlite3.Connection) -> None:
     conn.commit()

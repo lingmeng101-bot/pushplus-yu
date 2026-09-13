@@ -1,0 +1,18 @@
+# 敏感信息（绝对不要传）
+.env
+
+# Python 编译缓存
+__pycache__/
+*.pyc
+
+# IDE 配置文件
+.idea/
+.vscode/
+
+# SQLite 数据库文件（本地生成，不要传）
+*.db
+*.db-journal
+
+# 系统垃圾文件
+.DS_Store
+Thumbs.db

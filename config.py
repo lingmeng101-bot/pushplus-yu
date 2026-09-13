@@ -1,6 +1,11 @@
-BASE_URL = "https://www.xsyu.edu.cn/xwzx/tzgg.htm"
+import os
+from dotenv import load_dotenv
+load_dotenv()
+KEY_PASS=os.getenv("PUSHPLUS_TOKEN")
+BASE_URL=os.getenv("BASE_URL")
+
 #数据库
-DB_NAME="xi_an_shi_da.db"
+DB_NAME="xsyu.db"
 MAX_PAGES = 1
 #时间参数
 DELAY_MIN = 1.0
