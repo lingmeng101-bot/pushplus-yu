@@ -1,4 +1,4 @@
-# 敏感信息（绝对不要传）
+# 敏感信息
 .env
 
 # Python 编译缓存
@@ -9,7 +9,7 @@ __pycache__/
 .idea/
 .vscode/
 
-# SQLite 数据库文件（本地生成，不要传）
+# SQLite 数据库文件
 *.db
 *.db-journal
 
