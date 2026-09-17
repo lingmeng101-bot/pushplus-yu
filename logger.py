@@ -7,7 +7,7 @@ BASE_DIR=Path(__file__).resolve().parent
 
 
 def setup_logger(log_level: int=config.LOG_LEVEL,log_file: Path| str=BASE_DIR / config.LOG_FILE) -> logging.Logger:
-    logger = logging.getLogger(config.LOG_GET)
+    logger = logging.getLogger(config.LOG_NAME)
     logger.setLevel(log_level)
     logger.propagate = False
 

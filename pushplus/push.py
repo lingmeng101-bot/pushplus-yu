@@ -1,5 +1,9 @@
 import requests
 import json
+import logging,config
+
+log = logging.getLogger(config.LOG_NAME)
+
 def send_to_wechat(token,title,content):
     url = "https://www.pushplus.plus/send"
     payload = json.dumps({
@@ -18,4 +22,5 @@ def send_to_wechat(token,title,content):
         result_json=response.json()
         return result_json
     except Exception as e:
+        log.error(f"网络连接异常{e}")
         return {"code": -999, "msg": f"网络连接异常: {e}"}

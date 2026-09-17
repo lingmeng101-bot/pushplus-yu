@@ -18,7 +18,7 @@ RETRY_TOTAL = 3
 RETRY_BACKOFF = 1
 RETRY_STATUS = (429, 500, 502, 503, 504)
 #logger配置
-LOG_GET='ling-file'
+LOG_NAME='ling-file'
 LOG_LEVEL = logging.INFO
 LOG_FORMAT = "%(asctime)s - [%(filename)s:%(lineno)d] - %(name)s - %(levelname)s - %(message)s"
 LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"

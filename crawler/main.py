@@ -6,7 +6,7 @@ from crawler.fetcher import fetch
 from crawler.parser import parse_list, parse_detail, next_page_url, BLOCKED
 from crawler.storage import link_exists, save_yu, commit_db
 
-log = logging.getLogger(config.LOG_GET)
+log = logging.getLogger(config.LOG_NAME)
 
 def crawl_and_save(session, start_url: str, max_pages: int, conn) -> tuple[int,int]:
     url = start_url

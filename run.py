@@ -8,7 +8,7 @@ from crawler.main import crawl_and_save
 from pushplus.push import send_to_wechat
 from logger import setup_logger
 
-log = logging.getLogger(config.LOG_GET)
+log = logging.getLogger(config.LOG_NAME)
 
 
 def main():
