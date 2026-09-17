@@ -7,7 +7,7 @@ from requests.adapters import HTTPAdapter
 def make_session(headers: dict=None) -> requests.Session:
     session = requests.Session()
     define_headers={
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+        "User-Agent":random.choice(config.USER_AGENTS),
         "Accept": "text/html,application/xhtml+xml",
         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
     }
