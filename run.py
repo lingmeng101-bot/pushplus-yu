@@ -35,7 +35,7 @@ def main():
 
         content_list = []
         for notice_id, title, url, day in rows:
-            content_list.append(f"**【{day}】{title}**\n\n👉 [点击查看详情]({url})\n")
+            content_list.append(f"**【{day}】{title}**\n\n [点击查看详情]({url})\n")
 
 
         content = "\n---\n".join(content_list)
